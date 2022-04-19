@@ -253,19 +253,6 @@ contract LuckyNFT is Ownable{
         luckyNFTPrice = _luckyNFTPrice * 10**18;
     }
 
-    function changeMaxRarity(
-        uint256 legendary,
-        uint256 ultraRare,
-        uint256 superRare,
-        uint256 rare,
-        uint256 common
-    ) public onlyAdmin {
-        maxRarity[4] = legendary;
-        maxRarity[3] = ultraRare;
-        maxRarity[2] = superRare;
-        maxRarity[1] = rare;
-        maxRarity[0] = common;
-    }
 
     function changeAddressReceiver (address _address) public onlyAdmin {
         addressReceiver = _address;
