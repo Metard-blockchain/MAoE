@@ -68,8 +68,10 @@ contract BoxNFT is Ownable {
         _;
     }
 
-    function random(uint number) public view returns(uint){
-        return uint(blockhash(block.number-1)) % number;
+    function random(uint256 scale) internal returns (uint256) {
+        uint256 randomNumber= uint256(keccak256(abi.encodePacked(blockhash(block.number-1), randNonce, block.timestamp, block.difficulty, gasleft()))) % scale;
+        randNonce++;
+        return randomNumber;
     }
 
     /* 

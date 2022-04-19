@@ -73,8 +73,10 @@ contract LuckyNFT is Ownable{
         _;
     }
 
-    function random(uint number) public view returns(uint){
-        return uint(blockhash(block.number-1)) % number;
+    function random(uint256 scale) internal returns (uint256) {
+        uint256 randomNumber= uint256(keccak256(abi.encodePacked(blockhash(block.number-1), randNonce, block.timestamp, block.difficulty, gasleft()))) % scale;
+        randNonce++;
+        return randomNumber;
     }
 
     modifier overMaxNFT() {
@@ -95,10 +97,10 @@ contract LuckyNFT is Ownable{
         _;
     }
 
-    modifier onlyNonContractCall (){
-        require(msg.sender == tx.origin, "Only non contract call");
-        _;
-    }
+    // modifier onlyNonContractCall (){
+    //     require(msg.sender == tx.origin, "Only non contract call");
+    //     _;
+    // }
 
     /* 
 ================================================================
@@ -108,7 +110,6 @@ contract LuckyNFT is Ownable{
 
     function getLuckyNFT(uint256 numNFT)
         public
-        onlyNonContractCall
         userRemainingBox(msg.sender, numNFT)
         returns (uint256[] memory)
     {
