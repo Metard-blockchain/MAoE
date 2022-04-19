@@ -97,10 +97,10 @@ contract LuckyNFT is Ownable{
         _;
     }
 
-    // modifier onlyNonContractCall (){
-    //     require(msg.sender == tx.origin, "Only non contract call");
-    //     _;
-    // }
+    modifier onlyNonContractCall (){
+        require(msg.sender == tx.origin, "Only non contract call");
+        _;
+    }
 
     /* 
 ================================================================
@@ -110,6 +110,7 @@ contract LuckyNFT is Ownable{
 
     function getLuckyNFT(uint256 numNFT)
         public
+        onlyNonContractCall
         userRemainingBox(msg.sender, numNFT)
         returns (uint256[] memory)
     {
