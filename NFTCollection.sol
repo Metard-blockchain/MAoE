@@ -362,7 +362,7 @@ contract NFTCollection is ERC721URIStorage, Ownable {
         address from,
         address to,
         uint256 tokenId
-    ) public {
+    ) internal {
         uint256 token_index = checkTokenIndex(tokenId);
         uint256 len = nftListByAddress[from].length;
         if (len == 1) {
