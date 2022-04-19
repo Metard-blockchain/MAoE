@@ -4,6 +4,8 @@ Website: [https://maoe.io/](https://maoe.io/)
 
 Telegram: [https://t.me/MAoEGlobalOfficial](https://t.me/MAoEGlobalOfficial)
 
-Facebook: [https://www.facebook.com/MAoEglobal](https://www.facebook.com/MAoEgl>
+Facebook: [https://www.facebook.com/MAoEglobal](https://www.facebook.com/MAoEglobal)
 
 Twitter: [https://twitter.com/MAoE_io](https://twitter.com/MAoE_io)
+
+
